@@ -1,2 +1,5 @@
 env/
-app/logs/*.log
+app/logs/sim.log*
+app/__pycache__
+.ipynb*
+*.ipynb
