@@ -57,7 +57,7 @@ def test():
     
 def send_sms(value):
     _id, cnumber, _name, _time, _room, _status = value
-    message = f"""Lasalle Greenhills NOTIFYI System\nID Number:{_id}\nName: {_name}\nRoom:{_room}\nTime: {_time}\nStatus: {_status}\n"""
+    message = f"""La Salle Greenhills\nNOTIFYI System\nID Number:{_id}\nName: {_name}\nRoom:{_room}\nTime: {_time}\nStatus: {_status}\n"""
     simlogger.info(f"Sending SMS to {cnumber}")
     for retry in range(MAX_RETRY):
         hardwareSerial = serial.Serial('/dev/ttyS0', timeout=5)
@@ -74,7 +74,7 @@ def send_sms(value):
         hardwareSerial.write(message.encode())
         hardwareSerial.write(CTRLZ.encode('utf-8'))
         hardwareSerial.write(LF.encode('utf-8'))
-        for i in range(11):
+        for i in range(12):
             response.append(hardwareSerial.readline().decode())
         hardwareSerial.close()
         print("SIM808 Response: ", response)
